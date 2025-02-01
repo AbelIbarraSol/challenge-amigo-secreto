@@ -5,6 +5,7 @@
     --color-button: #fe652b;
     --color-button-hover: #e55720;
     --color-text: #444444;
+    --color-footer:#353531;
     --color-white: #FFFFFF;
 }
 
@@ -17,8 +18,10 @@
 
 body {
     height: 100vh;
-    background-color: var(--color-primary);
+    /* background-color: var(--color-primary); */
+    background-image: url(/assets/background.png);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -43,7 +46,7 @@ body {
 .input-section {
     flex: 60%;
     background-color: var(--color-secondary);
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     border-radius: 64px 64px 0 0;
     display: flex;
     flex-direction: column;
@@ -160,4 +163,20 @@ ul {
 
 .button-draw:hover {
     background-color: var(--color-button-hover);
+}
+
+.footer-content{
+    background-color: var(--color-secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding:20px 10px ;
+}
+
+.information-container p{
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-text);
 }
