@@ -1,4 +1,5 @@
 let nombres = [];
+let nombresSorteados = [];
 
 function accesoElemento(idElemento) {
     return document.getElementById(idElemento);
@@ -8,37 +9,49 @@ function agregarAmigo() {
     let inputNombre = accesoElemento('amigo').value;
     if (inputNombre == '') {
         alert('Por favor, inserte un nombre');
-    }else if(nombres.includes(inputNombre)){
+    }
+    if (nombres.includes(inputNombre)) {
         alert('El nombre ingresado ya se encuentra en la lista');
         accesoElemento('amigo').value = '';
     } else {
         nombres.push(inputNombre);
         accesoElemento('amigo').value = '';
-        let lista = accesoElemento('listaAmigos');  
-        lista.innerHTML = '';    
+        let lista = accesoElemento('listaAmigos');
+        lista.innerHTML = '';
         for (let i = 0; i < nombres.length; i++) {
             let nuevoNombre = document.createElement("li");
             nuevoNombre.textContent = nombres[i];
-            lista.appendChild(nuevoNombre);       
+            lista.appendChild(nuevoNombre);
         }
-    }    
+    }
 }
 
 function sortearAmigo() {
-    if (nombres.length === 0 || nombres.length === 1) {
+    if (nombres.length <= 1) {
         alert('Ingresa como minimo el nombre de dos amigos para poder iniciar con el sorteo');
-    }else{
-        let numAleatorio = Math.floor(Math.random()*nombres.length);
-            let mostrarResultado = accesoElemento('resultado');
-            let lista = accesoElemento('listaAmigos');
-            lista.innerHTML = '';
-            mostrarResultado.innerHTML = `El amigo secreto sorteado es: ${nombres[numAleatorio]}`;
-            console.log(nombres[numAleatorio]);
-        }        
+        return;
+    } else {
+        if (nombresSorteados.length === nombres.length) {
+            alert("Todos los amigos han sido sorteados.");
+            return;
+        }
+        let nombreSorteado;
+        do {
+            let numAleatorio = Math.floor(Math.random() * nombres.length);
+            nombreSorteado = nombres[numAleatorio];
+        } while (nombresSorteados.includes(nombreSorteado));
+        nombresSorteados.push(nombreSorteado);
+        accesoElemento('listaAmigos').innerHTML = "";
+        let mostrarResultado = accesoElemento('resultado');
+        mostrarResultado.innerHTML = `El amigo secreto sorteado es: ${nombreSorteado}`;
+        console.log(nombreSorteado);
+    }
 }
 
 function reiniciarSorteo() {
-    nombres = []
+    nombres = [];
+    nombresSorteados = [];
+    accesoElemento('amigo').innerHTML = "";
     accesoElemento('listaAmigos').innerHTML = "";
     accesoElemento('resultado').innerHTML = "";
 }
