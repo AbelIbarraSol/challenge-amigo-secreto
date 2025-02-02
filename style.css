@@ -19,7 +19,7 @@
 body {
     height: 100vh;
     /* background-color: var(--color-primary); */
-    background-image: url(/assets/background-interrogation.jpg);
+    background-image: url("./assets/background-interrogation.jpg");
     display: flex;
     flex-direction: column;
     justify-content: center;
