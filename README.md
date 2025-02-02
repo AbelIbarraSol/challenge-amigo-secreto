@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="assets/Challenge%20Amigo%20Secreto.gif" alt="Animación del proyecto">
+</div>
+
 <h1>Challenge del Amigo Secreto</h1>
 
 <p>La siguiente aplicación fue desarrollada durante la Fase de Principiante en Programación del Programa Oracle Next Education con el fin de poner en desarrollo las 
