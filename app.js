@@ -9,6 +9,7 @@ function agregarAmigo() {
     let inputNombre = accesoElemento('amigo').value;
     if (inputNombre == '') {
         alert('Por favor, inserte un nombre');
+        return;
     }
     if (nombres.includes(inputNombre)) {
         alert('El nombre ingresado ya se encuentra en la lista');
